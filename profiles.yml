@@ -7,7 +7,7 @@ projet_dbt:
       user: Trino
       password:  # required if method is ldap or kerberos
       catalog: lakehouse
-      host: localhost
+      host: http://20.74.69.161
       port: 8080
       schema: bronze  # a faire essayer d'envoyer vers silver
     gold:
@@ -16,7 +16,7 @@ projet_dbt:
       user: Trino
       password:  # required if method is ldap or kerberos
       catalog: clickhouse
-      host: localhost
+      host: http://20.74.69.161
       port: 8080
       schema: gold  # a faire essayer d'envoyer vers silver
 
