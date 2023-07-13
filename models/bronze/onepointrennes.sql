@@ -13,7 +13,7 @@ with source_data as (
 
     SELECT
     *
-    FROM  {{ source('source', 'weatherrennes') }}
+    FROM  {{ source('source', 'onepointrennes') }}
     WHERE
     json_extract_scalar(_airbyte_data, '$.coord.lon') IS NOT NULL
     AND json_extract_scalar(_airbyte_data, '$.coord.lat') IS NOT NULL

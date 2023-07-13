@@ -1,6 +1,6 @@
 version: 2
 sources:
-  - name: source1
+  - name: source
     database: source
     schema: weather
     tables:
