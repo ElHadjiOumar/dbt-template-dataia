@@ -24,6 +24,7 @@ airbyte_connection_rennes = AirbyteConnection.load("airbyte-connection-rennes",v
 @flow(name="flow_airbyte")
 def airbyte_syncs():
     run_connection_sync(airbyte_connection_bordeaux)
+    print(f'UNE ACTUALISATION AIRBYTE : {airbyte_connection_bordeaux.records_synced}')
 
     run_connection_sync(airbyte_connection_montreal)
 
@@ -34,8 +35,6 @@ def airbyte_syncs():
 deploiement_airbyte = Deployment.build_from_flow(
     flow= airbyte_syncs,
     name= "cron_airflow",
-    work_queue_name="default",
-    work_pool_name="default-agent-pool",
     schedule=(CronSchedule(cron="* * * * *", timezone="Europe/Paris"))
 )
 deploiement_airbyte.apply()
